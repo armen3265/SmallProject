@@ -9,8 +9,7 @@ using System.Text;
 
 namespace WcfServiceLibrary
 {
-    // ПРИМЕЧАНИЕ. Команду "Переименовать" в меню "Рефакторинг" можно использовать для одновременного изменения имени класса "Service1" в коде и файле конфигурации.
-    public class Service : IService
+   public class Service : IService
     {
         public int CreateOrEditCustomer(CustomerRecord customerRecord)
         {

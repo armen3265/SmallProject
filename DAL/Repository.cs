@@ -10,7 +10,6 @@ namespace DAL
     public class Repository : IDisposable
     {
         private BankDBEntities db;
-        private bool disposedValue;
 
         public Repository()
         {
@@ -84,8 +83,9 @@ namespace DAL
             var classifications = db.Classifications;
             return classifications;
         }
-             
 
+        #region DisposeRegion
+        private bool disposedValue;
         protected virtual void Dispose(bool disposing)
         {
             if (!disposedValue)
@@ -93,19 +93,15 @@ namespace DAL
                 if (disposing)
                 {
                     db.Dispose();
-                    // TODO: освободить управляемое состояние (управляемые объекты)
                 }
-
-                // TODO: освободить неуправляемые ресурсы (неуправляемые объекты) и переопределить метод завершения
-                // TODO: установить значение NULL для больших полей
                 disposedValue = true;
             }
         }
         public void Dispose()
         {
-            // Не изменяйте этот код. Разместите код очистки в методе "Dispose(bool disposing)".
             Dispose(disposing: true);
             GC.SuppressFinalize(this);
         }
     }
+    #endregion DisposeRegion
 }
